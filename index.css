@@ -1,0 +1,17 @@
+.searchBar{
+	background-color: #081C24;
+	height:auto;
+	text-align: center;	
+}
+.search{
+	padding: 2%;
+	width:50%;
+	width: auto;
+}
+.headerText{
+	padding-top: 2%;
+	color:#fefefe;
+}
+.detail{
+	cursor: pointer;
+}

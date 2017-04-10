@@ -2,32 +2,44 @@
 <html>
 <head>
 	<title>The Movie App</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 	<!-- wrapper div -->
-	<div class="wrapperClass">
+	<div class="wrapperClass container-fluid">
 
-		<!-- div for displaying local weather on button click -->
-		<div id="displayMoviewData">
-			<button id="sortMovies">Sort Movies</button>
-			<div id="displayGenres"></div>
-			<div id="displayData"></div>
-			<button id="nextPage">Next</button>
+		<div class="searchBar row" >
+			<div class="headerText">
+				<h1>The Movie DB API</h1>
+			</div>
+			<div class="search input-group">
+				<input type="text" name="movie" id="movie" placeholder="Enter Movie Name" class="form-control"/>
+				<div class="input-group-btn">
+					<button id="submitMovie" class="btn btn-primary">Search Movie</button>
+				</div>
+			</div>
 		</div>
 
 		</br>
 
-		<div>
-			<input type="text" name="movie" id="movie" placeholder="Enter Movie Name" required/>
-			<span id="error"></span>
-			<button id="submitMovie">Search Movie</button>
-			<div id="displaySearchedMovie"></div>
+		<!-- div for displaying movie posters -->
+		<div class="displayMovieData">
+
+			<!-- container to display fetched movies -->
+			<div id="displayData"></div>
+
+			<!-- button to display next set of fetched movies -->
+			<button id="nextPage" class="btn">Next</button>
 		</div>
 
 	</div>
 
 	<!-- adding scripts -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
