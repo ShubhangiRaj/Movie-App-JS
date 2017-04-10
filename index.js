@@ -9,10 +9,11 @@ $(document).ready(function(){
 		var info = show(data);
 		$("#displayData").html(info);
 
-		$("#detail").click(function(){
-			var data = $('#detail').data('ref');
+		$(document).on('click', '.detail', function(){
+			var data = $(this).data('ref');
 			console.log(data); 
 			$("#displayData").html(data);
+			$("#nextPage").hide();  // hide the button on search page
 		});
 	});
 
@@ -35,6 +36,8 @@ $(document).ready(function(){
 
 	$("#submitMovie").click(function(){
 
+		$("#nextPage").hide();  // hide the button on search page
+
 		// store the value of the input field in a variable
 		var movieSearched = $("#movie").val();
 
@@ -54,8 +57,8 @@ $(document).ready(function(){
 					// code for clearing the input fields
 					$("#movie").val("");
 
-					$("#movieSearchedList").click(function(){
-						var data = $('#movieSearchedList').data('ref');
+					$(document).on('click','.movieSearchedList',function(){
+						var data = $(this).data('ref');
 						console.log(data); 
 						$("#displayData").html(data);
 					});
@@ -74,7 +77,7 @@ function show(data){
 	var results = data.results;
 	var showing = "";
 	for(var i = 0; i < results.length; i++){
-		showing+="<div id='detail' data-ref="+ JSON.stringify(results[i].overview)+">" + results[i].original_title +"</div><hr>" ;
+		showing+="<div class='detail' data-ref="+JSON.stringify(results[i].overview)+">" + results[i].original_title +"<br>"+"<p>Relase date: " +  results[i].release_date  +"</p></div><hr>" ;
 		// showing+="<img>" + data.results[i].images.base_url.poster_sizes[4].poster_path+"</img>" ;
 	}
 	return showing; 
@@ -85,7 +88,7 @@ function showSearchedMovie(data){
 	var results = data.results;
 	var showing = "";
 	for(var i = 0; i < results.length; i++){
-		showing+="<div id='movieSearchedList' data-ref="+ JSON.stringify(results[i].overview)+">" + data.results[i].original_title +"</div>" ;
+		showing+="<div class='movieSearchedList' data-ref="+JSON.stringify(results[i].overview)+">" + data.results[i].original_title +"<br>"+"<p>Relase date: " +  results[i].release_date  +"</p></div><hr>" ;
 	}
 	return showing; 
 }
